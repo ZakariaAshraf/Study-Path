@@ -1,0 +1,20 @@
+[
+  {
+    "university_name": "FH TECHNIKUM WIEN",
+    "portal_link": "https://cis.technikum-wien.at/addons/bewerbung/cis/bewerbung.php",
+    "country": "Austria",
+    "moi_accepted": "TRUE",
+    "deadline_date": "",
+    "english_level_required": "B2",
+    "program_name": "Software Engineering"
+  },
+  {
+    "university_name": "WU VIENNA",
+    "portal_link": "https://bach.wu.ac.at/bachapp-vi/kdcs/47214/SUI?R=793267;L=E",
+    "country": "Austria",
+    "moi_accepted": "TRUE",
+    "deadline_date": "",
+    "english_level_required": "B2",
+    "program_name": "Digital Economy"
+  }
+]
