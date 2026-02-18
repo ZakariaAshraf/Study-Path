@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:study_path/core/utils/screen_util.dart';
 import 'package:study_path/core/widgets/character_item.dart';
 import 'package:study_path/core/widgets/custom_button.dart';
+import 'package:study_path/l10n/app_localizations.dart';
 import 'package:study_path/main.dart';
 
 import '../manager/auth_cubit.dart';
@@ -38,7 +39,7 @@ final List<CharacterModel> characters = [
     imageName: "Male Graduate",
   ),
   CharacterModel(
-    id:   'male_grad',
+    id:   'female_grad',
     imagePath: "assets/icons/fgrad.png",
     imageName: "Female Graduate",
   ),
@@ -48,6 +49,7 @@ class _ChooseYourCharacterScreenState extends State<ChooseYourCharacterScreen> {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context).textTheme;
+    final l10n = AppLocalizations.of(context)!;
     bool isButtonEnabled = selectedIndex != -1;
     return Scaffold(
       appBar: AppBar(),
@@ -62,7 +64,7 @@ class _ChooseYourCharacterScreenState extends State<ChooseYourCharacterScreen> {
           } else if (state is AuthFailure) {
             ScaffoldMessenger.of(
               context,
-            ).showSnackBar(SnackBar(content: Text("l10n!.registerFailed")));
+            ).showSnackBar(SnackBar(content: Text(l10n!.registerFailed)));
           }
         },
         builder: (context, state) {
@@ -114,7 +116,7 @@ class _ChooseYourCharacterScreenState extends State<ChooseYourCharacterScreen> {
                     ),
                   ),
                   CustomButton(
-                    title: "Continue",
+                    title: l10n.continuee,
                     color: isButtonEnabled
                         ? Colors.black
                         : Colors.grey.shade400,
@@ -131,7 +133,7 @@ class _ChooseYourCharacterScreenState extends State<ChooseYourCharacterScreen> {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 content: Text(
-                                  "Please select a character first",
+                                  l10n.pleaseSelectCharacter,
                                 ),
                               ),
                             );

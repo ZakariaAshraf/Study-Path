@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:study_path/core/utils/screen_util.dart';
 import 'package:study_path/core/widgets/custom_toast_widget.dart';
 import 'package:study_path/features/notification/presentation/screens/notification_screen.dart';
+import '../../../../l10n/app_localizations.dart';
 
 import '../../../../core/data/app_user_model.dart';
 import '../../../../core/generated/assets/assets_helper.dart';
@@ -25,6 +26,7 @@ class _UserInfoSectionState extends State<UserInfoSection> {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context).textTheme;
+    final l10n = AppLocalizations.of(context)!;
     return BlocBuilder<UserCubit, UserState>(
       builder: (context, state) {
         if (state is UserLoading) {
@@ -76,7 +78,7 @@ class _UserInfoSectionState extends State<UserInfoSection> {
                   ),
                   subtitle: Text(state.user.name, style: theme.titleLarge),
                   title: Text(
-                    "Welcome Back,",
+                    l10n.welcomeBack,
                     style: theme.titleMedium!.copyWith(color: Colors.grey),
                   ),
                   trailing: IconButton(
@@ -88,7 +90,7 @@ class _UserInfoSectionState extends State<UserInfoSection> {
                       //     builder: (context) => NotificationScreen(),
                       //   ),
                       // );
-                      CustomToastWidget.show(context: context, title: "Will be available soon", iconPath: "assets/images/pattern.png");
+                      CustomToastWidget.show(context: context, title: l10n.willBeAvailableSoon, iconPath: "assets/icons/icon.png");
                     },
                   ),
                 ),

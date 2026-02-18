@@ -95,11 +95,9 @@ class UserCubit extends Cubit<UserState> {
     } else {
       emit(UserLoading());
     }
-
-    listenToFirebaseStream();
   }
 
-  void listenToFirebaseStream() {
+  void listenToFirebaseStream(String userId) {
     final userId = FirebaseAuth.instance.currentUser?.uid;
     if (userId == null) return;
 
@@ -121,49 +119,42 @@ class UserCubit extends Cubit<UserState> {
 
   AppUserModel? user;
 
-  // Future<void> updateProfile({
-  //   String? fullName,
-  //   String? phoneNumber,
-  //   File? profilePicture,
-  //   double? balance,
-  // }) async {
-  //   emit(UserLoading());
-  //   try {
-  //     final User? currentUser = _auth.currentUser;
-  //     if (currentUser == null) {
-  //       throw Exception("User not logged in");
-  //     }
-  //
-  //     String? photoUrl;
-  //     if (profilePicture != null) {
-  //       // String fileName = DateTime.now().millisecondsSinceEpoch.toString();
-  //       // Reference reference =
-  //       //     FirebaseStorage.instance.ref().child('user_photos/$fileName');
-  //       // UploadTask uploadTask = reference.putFile(profilePicture);
-  //       // TaskSnapshot taskSnapshot = await uploadTask;
-  //       // photoUrl = await taskSnapshot.ref.getDownloadURL();
-  //     }
-  //
-  //     final Map<String, dynamic> updatedData = {
-  //       if (fullName != null) 'name': fullName,
-  //       if (phoneNumber != null) 'phone': phoneNumber,
-  //     };
-  //
-  //     await _firestore
-  //         .collection('users')
-  //         .doc(currentUser.uid)
-  //         .update(updatedData);
-  //
-  //     user = AppUserModel(
-  //       name: fullName ?? user?.name ?? '',
-  //       phone: phoneNumber ?? user?.phone ?? '',
-  //       charUrl: photoUrl ?? user?.charUrl ?? '',
-  //       createdAt: user?.createdAt ?? DateTime.now(),
-  //     );
-  //
-  //     emit(UserSuccess());
-  //   } catch (e) {
-  //     emit(UserError(e.toString()));
-  //   }
-  // }
+  Future<void> updateProfile({
+    String? fullName,
+    String? phoneNumber,
+    String? charPath,
+    // double? balance,
+  }) async {
+    emit(UserLoading());
+    try {
+      final User? currentUser = _auth.currentUser;
+      if (currentUser == null) {
+        throw Exception("User not logged in");
+      }
+
+
+      final Map<String, dynamic> updatedData = {
+        if (fullName != null) 'name': fullName,
+        if (phoneNumber != null) 'phone': phoneNumber,
+        if (charPath != null) 'character': charPath,
+      };
+
+      await _firestore
+          .collection('users')
+          .doc(currentUser.uid)
+          .update(updatedData);
+
+      user = AppUserModel(
+        name: fullName ?? user?.name ?? '',
+        phone: phoneNumber ?? user?.phone ?? '',
+        charUrl: charPath ?? user?.charUrl ?? '',
+        createdAt: user?.createdAt ?? DateTime.now(),
+      );
+
+      getCurrentUserData();
+      emit(UserSuccess());
+    } catch (e) {
+      emit(UserError(e.toString()));
+    }
+  }
 }

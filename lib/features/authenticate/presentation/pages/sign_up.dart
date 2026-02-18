@@ -6,6 +6,7 @@ import 'package:study_path/features/authenticate/presentation/pages/phone_number
 import 'package:study_path/features/authenticate/presentation/pages/sign_in.dart';
 import '../../../../core/widgets/custom_button.dart';
 import '../../../../core/widgets/custom_text_field.dart';
+import '../../../../l10n/app_localizations.dart';
 import '../manager/auth_cubit.dart';
 
 class SignUp extends StatefulWidget {
@@ -41,7 +42,8 @@ class _SignUpState extends State<SignUp> {
 
   @override
   Widget build(BuildContext context) {
-    // final l10n = AppLocalizations.of(context);
+    final l10n = AppLocalizations.of(context);
+    var theme=Theme.of(context).textTheme;
     return Scaffold(
       body: Stack(
         children: [
@@ -52,23 +54,21 @@ class _SignUpState extends State<SignUp> {
                 SizedBox(
                   height: 130,
                   width: 138,
-                  child: const Icon(Icons.school, size: 60),
+                  child: Image.asset("assets/icons/icon.png"),
                 ),
                 Text(
-                  "Join Application",
+                  l10n!.joinApplication,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.black,
+                  style: theme.titleLarge!.copyWith(
                     fontSize: 30.0.sp(context),
                     fontWeight: FontWeight.w600,
                   ),
                 ),
                 SizedBox(height: 10.h(context)),
                 Text(
-                  '''Find your dream Master's program in Europe''',
+                  l10n.signUpDescription,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.black26,
+                  style: theme.bodySmall!.copyWith(
                     fontSize: 18.0.sp(context),
                     fontWeight: FontWeight.w600,
                   ),
@@ -77,29 +77,29 @@ class _SignUpState extends State<SignUp> {
 
                 CustomTextField(
                   controller: nameController,
-                  hintText: "Full Name", // l10n!.fullName
+                  hintText: l10n.fullName,
                 ),
                 const SizedBox(height: 15),
                 CustomTextField(
                   controller: emailController,
-                  hintText: "Email", // l10n.email
+                  hintText: l10n.email,
                 ),
                 const SizedBox(height: 15),
                 CustomTextField(
                   isPassword: true,
                   controller: passwordController,
-                  hintText: "Password", // l10n.password
+                  hintText: l10n.password,
                 ),
                 const SizedBox(height: 15),
                 CustomTextField(
                   controller: phoneController,
-                  hintText: "Phone Number", // l10n.phoneNumber
+                  hintText: l10n.phoneNumber,
                 ),
                 const SizedBox(height: 30),
 
                 Center(
                   child: CustomButton(
-                    title: 'Register',
+                    title: l10n.register,
                     onTap: () {
                       if (areFieldsFilled()) {
                         Navigator.push(
@@ -117,7 +117,7 @@ class _SignUpState extends State<SignUp> {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: Text(
-                              "Please fill all fields",
+                              l10n.pleaseFillAllFields,
                               style: TextStyle(color: Colors.white),
                             ),
                             backgroundColor: Colors.red,
@@ -129,16 +129,16 @@ class _SignUpState extends State<SignUp> {
                 ),
                 const SizedBox(height: 30),
                 Center(
-                  child: const Text(
-                    "or continue with",
+                  child: Text(
+                    l10n.orContinueWith,
                     style: TextStyle(color: Colors.grey),
                   ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
-                      "Already have an account? ", // l10n.alreadyHaveAccount
+                    Text(
+                      l10n.alreadyHaveAccount,
                       style: TextStyle(color: Colors.grey),
                     ),
                     TextButton(
@@ -151,8 +151,8 @@ class _SignUpState extends State<SignUp> {
                           (route) => true,
                         );
                       },
-                      child: const Text(
-                        "Login", // l10n.login
+                      child: Text(
+                        l10n.login,
                         style: TextStyle(color: Color(0xff1F4C6B)),
                       ),
                     ),

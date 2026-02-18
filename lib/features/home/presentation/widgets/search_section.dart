@@ -5,6 +5,7 @@ import 'package:study_path/core/cache/cache_helper.dart';
 import 'package:study_path/core/utils/screen_util.dart';
 import 'package:study_path/features/filter/presentation/screens/filter_screen.dart';
 import 'package:study_path/features/search/presentation/search_screen.dart';
+import '../../../../l10n/app_localizations.dart';
 import '../../../../core/utils/app_colors.dart';
 
 class SearchSection extends StatelessWidget {
@@ -13,7 +14,7 @@ class SearchSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context).textTheme;
-    // final l10n = AppLocalizations.of(context);
+    final l10n = AppLocalizations.of(context);
     final direction = Directionality.of(context);
 
     return Padding(
@@ -47,9 +48,9 @@ class SearchSection extends StatelessWidget {
               child: SizedBox(
                 width: 280.w(context),
                 child: Text(
-                  "Find your dream\nMaster's in Europe",
+                  l10n!.findYourDreamMasters,
                   style: theme.titleLarge!.copyWith(
-                    fontSize: 30,
+                    fontSize: 28.sp(context),
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),
@@ -58,27 +59,30 @@ class SearchSection extends StatelessWidget {
             ),
             Positioned.directional(
               textDirection: direction,
-              top: 85,
-              child: TextButton(
-                onPressed: () {},
-                child: Text(
-                  "Search over 5,000 degrees",
-                  style: theme.bodyMedium!.copyWith(color: AppColors.secondary),
+              top: 100.h(context),
+              child: Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    l10n.searchOverDegrees,
+                    style: theme.bodyMedium!.copyWith(color: AppColors.secondary),
+                  ),
                 ),
               ),
             ),
             Positioned.directional(
-              start: 22.w(context),
+              start: 10.w(context),
               textDirection: direction,
-              top: 140,
+              top: 180.h(context),
               child: GestureDetector(
                 onTap: () {
                   // Navigator.push(context, MaterialPageRoute(builder: (context) => SearchScreen(),));
                   Navigator.push(context, MaterialPageRoute(builder: (context) => FilterScreen(),));
                 },
                 child: Container(
-                  height: 50,
-                  width: 300,
+                  height: 60.h(context),
+                  width: 345.h(context),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
                     color: Colors.white,
@@ -89,11 +93,11 @@ class SearchSection extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Start New Search",
+                          l10n.startNewSearch,
                           style: theme.titleMedium!.copyWith(
                             color: Colors.blueAccent.shade400,
                             fontWeight: FontWeight.bold,
-                            fontSize: 17,
+                            fontSize: 17.sp(context),
                           ),
                         ),
                         Container(
@@ -110,7 +114,7 @@ class SearchSection extends StatelessWidget {
                               Icon(
                                 Icons.search,
                                 color: Colors.white,
-                                size: 22,
+                                size: 30.r(context),
                               ),
                             ],
                           ),

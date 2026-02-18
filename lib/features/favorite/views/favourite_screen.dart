@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:study_path/core/widgets/university_card.dart';
+import '../../../l10n/app_localizations.dart';
 import '../../../core/widgets/default_message_card.dart';
 import '../cubit/favourite_cubit.dart';
 
@@ -14,40 +15,48 @@ class FavouriteScreen extends StatefulWidget {
 class _FavouriteScreenState extends State<FavouriteScreen> {
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return Scaffold(
-      appBar: AppBar(title: const Text("Bookmarks"), centerTitle: true),
+      appBar: AppBar(title: Text(l10n!.bookmarks), centerTitle: true),
       body: BlocBuilder<FavouriteCubit, FavouriteState>(
         builder: (context, state) {
-          if (state is FavouriteInitial) {
-            return const DefaultMessageCard(
-              sign: '0_0',
-              title: "You don't like anything ",
-              subTitle: "favorite",
-            );
-          } else if (state is FavouriteLoading) {
-            return const Center(child: CircularProgressIndicator());
+          // if (state is FavouriteInitial) {
+          //   return DefaultMessageCard(
+          //     sign: '0_0',
+          //     title: l10n.noFavorites,
+          //     subTitle: l10n.favorite,
+          //   );
+          // } else
+            if (state is FavouriteLoading) {
+            return const Center(child: CircularProgressIndicator(color: Colors.black54,));
           } else if (state is FavouriteSuccess) {
-            return Expanded(
-              child: GridView.builder(
-                scrollDirection: Axis.vertical,
-                itemBuilder: (context, index) {
-                  return UniversityCard(program:state.programmes[index]);
-                },
-                itemCount: state.programmes.length,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 5,
-                  mainAxisSpacing: 5,
+              if (state.programmes.isEmpty) {
+                return DefaultMessageCard(
+                  sign: '📪',
+                  title: l10n.noFavorites,
+                  subTitle: l10n.favorite,
+                );
+              }else {
+                return GridView.builder(
+                  scrollDirection: Axis.vertical,
+                  itemBuilder: (context, index) {
+                    return UniversityCard(program:state.programmes[index]);
+                  },
+                  itemCount: state.programmes.length,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 5,
+                    mainAxisSpacing: 5,
 
-                  childAspectRatio: 0.75,
-                ),
-              ),
-            );
+                    childAspectRatio: 0.75,
+                  ),
+                );
+              }
           } else {
             return Center(
               child: ElevatedButton(
                 onPressed: () => context.read<FavouriteCubit>().loadFavorites(),
-                child: const Text("Reload page"),
+                child: Text(l10n.reloadPage),
               ),
             );
           }

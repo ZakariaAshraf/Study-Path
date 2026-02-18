@@ -3,7 +3,7 @@ import 'package:study_path/core/utils/screen_util.dart';
 
 class CustomButton extends StatelessWidget {
   final String title;
-  final void Function() onTap;
+  final void Function() ?onTap;
   final Color? color;
   final double? width;
   final double? height;

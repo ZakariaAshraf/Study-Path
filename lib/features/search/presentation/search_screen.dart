@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:study_path/features/filter/presentation/screens/filter_screen.dart';
 import 'package:study_path/features/home/data/model/program_model.dart';
+import '../../../l10n/app_localizations.dart';
 
 import '../../../core/widgets/default_message_card.dart';
 import '../../../core/widgets/university_item.dart';
@@ -76,6 +77,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -83,17 +85,22 @@ class _SearchScreenState extends State<SearchScreen> {
           actions: [
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Container(
-                padding: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.redAccent.withOpacity(0.1),
-                ),
-                child: Image.asset(
-                  "assets/icons/ic_filter.png",
-                  height: 18,
-                  width: 18,
-                  color: Colors.red,
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => FilterScreen(),));
+                },
+                child: Container(
+                  padding: EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.redAccent.withOpacity(0.1),
+                  ),
+                  child: Image.asset(
+                    "assets/icons/ic_filter.png",
+                    height: 18,
+                    width: 18,
+                    color: Colors.red,
+                  ),
                 ),
               ),
             )
@@ -135,17 +142,17 @@ class _SearchScreenState extends State<SearchScreen> {
                     return const Center(child: CircularProgressIndicator());
                   }
                   if (snapshot.hasError) {
-                    return const DefaultMessageCard(
+                    return DefaultMessageCard(
                       sign: "!",
-                      subTitle: "Error fetching properties",
-                      title: "Error",
+                      subTitle: l10n.errorFetchingProperties,
+                      title: "${l10n.error}",
                     );
                   }
                   if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                    return const DefaultMessageCard(
+                    return DefaultMessageCard(
                       sign: "!",
-                      subTitle: "No properties found",
-                      title: "No Results",
+                      subTitle: l10n.noPropertiesFound,
+                      title: l10n.noResults,
                     );
                   }
                   return ListView.builder(

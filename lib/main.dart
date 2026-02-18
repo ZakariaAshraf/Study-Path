@@ -1,13 +1,9 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:study_path/core/cache/cache_helper.dart';
-import 'package:study_path/core/themes/app_theme.dart';
-import 'package:study_path/features/authenticate/presentation/pages/choose_your_character_screen.dart';
 import 'package:study_path/features/favorite/cubit/favourite_cubit.dart';
 import 'package:study_path/features/notification/data/services/notification_services.dart';
 import 'package:study_path/features/settings/presentation/Cubit/user_cubit.dart';
@@ -47,7 +43,7 @@ void main() async{
 
 class MyApp extends ConsumerWidget {
   final Widget startWidget;
-  const MyApp({super.key, required this.startWidget});
+    const MyApp({super.key, required this.startWidget});
 
   // This widget is the root of your application.
   @override
@@ -67,10 +63,24 @@ class MyApp extends ConsumerWidget {
           create: (context) => ProgramsCubit(),
         ),
         BlocProvider(
-          create: (context) => UserCubit()..loadUserData(),
+          create: (context) {
+            final cubit = UserCubit();
+            final uId = CacheHelper.getString(key: CacheKeys.uId);
+            if (uId != null) {
+              cubit.listenToFirebaseStream(uId);
+            }
+            return cubit;
+          },
         ),
         BlocProvider(
-          create: (context) => FavouriteCubit()..loadFavorites(),
+          create: (context) {
+            final cubit = FavouriteCubit();
+            final uId = CacheHelper.getString(key: CacheKeys.uId);
+            if (uId != null) {
+              cubit.listenToFavorites();
+            }
+            return cubit;
+          },
         ),
       ],
       child: MaterialApp(
@@ -98,8 +108,7 @@ class MyApp extends ConsumerWidget {
         themeMode: theme,
         darkTheme: ThemeData.dark(),
         theme: ThemeData.light(),
-        title: 'Study Path',
-
+        title: 'Egy Assist',
         home:startWidget,
         // home:OnboardingScreen(),
         routes: {

@@ -47,7 +47,7 @@ class PhoneNumberValidation extends StatelessWidget {
                 CustomToastWidget.show(
                   context: context,
                   title: "Enter number",
-                  iconPath: "assets/icons/logo.png",
+                  iconPath: "assets/icons/icon.png",
                 );
               } else {
                 try {

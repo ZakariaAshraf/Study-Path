@@ -43,7 +43,7 @@ class _LinkPreviewerState extends State<LinkPreviewer> {
       builder: (context, snapshot) {
         // 1. حالة التحميل
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator(color: Colors.black54,));
         }
 
         // 2. التحقق من وجود داتا وصورة
@@ -77,18 +77,18 @@ class _LinkPreviewerState extends State<LinkPreviewer> {
 
   // دي الويدجت اللي بتظهر لما ميكونش فيه صورة
   Widget _buildNoImageFallback() {
-    return const Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(Icons.image_not_supported, size: 40, color: Colors.grey),
-          SizedBox(height: 8),
-          Text(
-            "No image to preview",
-            style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
-          ),
-        ],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(Icons.image_not_supported, size: 40, color: Colors.grey),
+
+        // Image.asset("assets/icons/icon.png",height: 120.h(context),width: 120.w(context),),
+        SizedBox(height: 8,),
+        Text(
+          "No image to preview",
+          style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold,fontSize: 14),
+        ),
+      ],
     );
   }
 }

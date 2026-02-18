@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:study_path/core/utils/screen_util.dart';
-import 'package:study_path/features/filter/presentation/screens/university_details_screen.dart';
+import 'package:study_path/features/filter/presentation/screens/program_details_screen.dart';
 
 import '../../features/filter/presentation/widgets/link_previewer.dart';
 import '../../features/home/data/model/program_model.dart';
@@ -15,7 +15,7 @@ class UniversityCard extends StatelessWidget {
     var theme = Theme.of(context).textTheme;
     return InkWell(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => UniversityDetailsScreen(program: program),));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => ProgramDetailsScreen(program: program),));
       },
       child: Container(
         width: 180.w(context),
@@ -65,7 +65,7 @@ class UniversityCard extends StatelessWidget {
                   ), ),
               ],
             ),
-            Text(program.programName, style: theme.titleMedium),
+            Text(program.programName, style: theme.titleMedium!.copyWith(fontSize: 14)),
             Text(program.universityName, style: theme.titleSmall!.copyWith(color: Colors.grey)),
           ],
         ),

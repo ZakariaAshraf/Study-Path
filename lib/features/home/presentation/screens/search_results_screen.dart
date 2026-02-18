@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:study_path/core/widgets/university_item.dart';
+import '../../../../l10n/app_localizations.dart';
 
 import '../../../../core/widgets/default_message_card.dart';
 import '../cubit/programs_cubit.dart';
@@ -11,9 +12,10 @@ class SearchResultsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context).textTheme;
+    final l10n = AppLocalizations.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text("Search Results"),
+        title: Text(l10n!.searchResults),
       ),
       body: BlocBuilder<ProgramsCubit, ProgramsState>(
           builder: (context, state) {
@@ -28,15 +30,15 @@ class SearchResultsScreen extends StatelessWidget {
                 },
               );
             }else if (state is ProgramsLoadEmpty) {
-              return const DefaultMessageCard(
+              return DefaultMessageCard(
                 sign: '0_0',
-                title: "Your list is empty",
+                title: l10n.listIsEmpty,
                 subTitle: "",
               );
             }else if (state is ProgramsError) {
-              return const DefaultMessageCard(
+              return DefaultMessageCard(
                 sign: ':(',
-                title: "Your list is empty",
+                title: l10n.listIsEmpty,
                 subTitle: "",
               );
             }

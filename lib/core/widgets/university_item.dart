@@ -5,9 +5,10 @@ import 'package:study_path/core/widgets/custom_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../features/favorite/cubit/favourite_cubit.dart';
-import '../../features/filter/presentation/screens/university_details_screen.dart';
+import '../../features/filter/presentation/screens/program_details_screen.dart';
 import '../../features/filter/presentation/widgets/link_previewer.dart';
 import '../../features/home/data/model/program_model.dart';
+import '../../l10n/app_localizations.dart';
 import '../utils/app_colors.dart';
 import '../utils/extenstions.dart';
 
@@ -19,9 +20,10 @@ class UniversityItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context).textTheme;
+    final l10n = AppLocalizations.of(context)!;
     return InkWell(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => UniversityDetailsScreen(program: program),));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => ProgramDetailsScreen(program: program),));
       },
       child: Container(
         padding: EdgeInsets.all(12),
@@ -74,20 +76,18 @@ class UniversityItem extends StatelessWidget {
                           .read<FavouriteCubit>()
                           .isFavorite(program.id ?? "");
                       return InkWell(
-                        onTap: () {
-                          context.read<FavouriteCubit>().addToFavourite(program);
-                          isFavorite
-                              ? ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                    content: Text("removed from saved meals"),
-                                  ),
-                                )
-                              : ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                    content: Text("added to saved meals"),
-                                  ),
-                                );
-                        },
+                          onTap: () async {
+                            await context.read<FavouriteCubit>().addToFavourite(program);                            if (context.mounted) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(isFavorite
+                                      ? "removed from bookmarks"
+                                      : "added to saved programs"),
+                                  duration: const Duration(seconds: 1),
+                                ),
+                              );
+                            }
+                          },
                         child: Container(
                           // height: 40,
                           // width: 64.w(context),
@@ -100,7 +100,7 @@ class UniversityItem extends StatelessWidget {
                           child: Icon(isFavorite ?Icons.bookmark :
                           Icons.bookmark_border,
                             color: isFavorite
-                            ? AppColors.primary
+                            ? Colors.white
                             : Colors.black,
                             size: 25,
                           ),
@@ -144,7 +144,8 @@ class UniversityItem extends StatelessWidget {
                   Expanded(
                     flex: 1,
                     child: CustomButton(
-                      title: "Official Website",
+                      textStyle: theme.titleMedium!.copyWith(color: Colors.black),
+                      title: l10n.officialWebsite,
                       isInvert: false,
                       onTap: () async {
                         await launchUrls(
@@ -158,7 +159,8 @@ class UniversityItem extends StatelessWidget {
                   Expanded(
                     flex: 1,
                     child: CustomButton(
-                      title: "View Portal",
+                      textStyle: theme.titleMedium!.copyWith(color: Colors.white),
+                      title: l10n.viewPortal,
                       onTap: () async {
                         await launchUrls(program.applyLink);
                       },

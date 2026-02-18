@@ -50,7 +50,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
               : null,
           TextFormField(
             maxLines: widget.maxLines ?? null,
-            style: const TextStyle(color: Colors.black),
+            style: theme.bodyLarge,
             onChanged: widget.onChanged,
             controller: widget.controller,
             obscureText: _obscure,

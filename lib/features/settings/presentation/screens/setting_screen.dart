@@ -11,6 +11,7 @@ import 'package:study_path/features/authenticate/presentation/pages/sign_in.dart
 import '../../../../core/generated/assets/assets_helper.dart';
 import '../../../../core/locale/widgets/language_toggle_button.dart';
 import '../../../../core/themes/widgets/theme_toggle_button.dart';
+import '../../../../l10n/app_localizations.dart';
 import '../../../../main.dart';
 import '../components/settings_button.dart';
 import 'change_password_screen.dart';
@@ -37,20 +38,19 @@ class _SettingScreenState extends State<SettingScreen> {
   Widget build(BuildContext context) {
     var theme = Theme.of(context).textTheme;
     String imagePath = getCharacterAssetPath(widget.photoUrl ?? "");
-    // final l10n = AppLocalizations.of(context);
+    final l10n = AppLocalizations.of(context);
     return BlocListener<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is AuthInitial) {
-          Navigator.pushAndRemoveUntil(
-            context,
-            MaterialPageRoute(builder: (context) => SignIn()),
-            (route) => true,
+          Navigator.of(context, rootNavigator: true).pushAndRemoveUntil(
+            MaterialPageRoute(builder: (context) => const SignIn()),
+                (route) => false,
           );
         }
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text("l10n!.settings", style: theme.titleLarge),
+          title: Text(l10n!.settings, style: theme.titleLarge),
           centerTitle: true,
         ),
         body: Padding(
@@ -78,29 +78,33 @@ class _SettingScreenState extends State<SettingScreen> {
                               ),
                             ),
                           ),
-                          Positioned(
-                            bottom: 0,
-                            right: 0,
-                            child: Container(
-                              // height: 40,
-                              // width: 64.w(context),
-                              padding: EdgeInsets.all(7),
-                              decoration: BoxDecoration(
-                                border: BoxBorder.all(color: Colors.white),
-                                shape: BoxShape.circle,
-                                color: Colors.blueAccent,
-                              ),
-                              child: Row(
-                                children: [
-                                  Icon(
-                                    Icons.edit,
-                                    color: Colors.white,
-                                    size: 18,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
+                          // Positioned(
+                          //   bottom: 0,
+                          //   right: 0,
+                          //   child: InkWell(
+                          //     onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => ChangeCharacterScreen(),)),
+                          //
+                          //     child: Container(
+                          //       // height: 40,
+                          //       // width: 64.w(context),
+                          //       padding: EdgeInsets.all(7),
+                          //       decoration: BoxDecoration(
+                          //         border: BoxBorder.all(color: Colors.white),
+                          //         shape: BoxShape.circle,
+                          //         color: Colors.blueAccent,
+                          //       ),
+                          //       child: Row(
+                          //         children: [
+                          //           Icon(
+                          //             Icons.edit,
+                          //             color: Colors.white,
+                          //             size: 18,
+                          //           ),
+                          //         ],
+                          //       ),
+                          //     ),
+                          //   ),
+                          // ),
                         ],
                       ),
                       const SizedBox(height: 12),
@@ -115,7 +119,7 @@ class _SettingScreenState extends State<SettingScreen> {
                             size: 20,
                           ),
                           Text(
-                            "Cairo, Egypt",
+                            l10n.cairoEgypt,
                             style: theme.bodyMedium!.copyWith(
                               color: Colors.grey,
                             ),
@@ -124,7 +128,7 @@ class _SettingScreenState extends State<SettingScreen> {
                       ),
                       const SizedBox(height: 10),
                       CustomButton(
-                        title: "Edit Profile",
+                        title: l10n.editProfile,
                         onTap: () {
                           Navigator.push(
                             context,
@@ -135,7 +139,7 @@ class _SettingScreenState extends State<SettingScreen> {
                         },
                         isInvert: false,
                         color: Colors.white,
-                        width: 120.w(context),
+                        width: 180.w(context),
                         textStyle: theme.titleMedium!.copyWith(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
@@ -147,7 +151,7 @@ class _SettingScreenState extends State<SettingScreen> {
                 ),
                 const SizedBox(height: 20),
                 Text(
-                  "PREFERENCES",
+                  l10n.preferences,
                   style: theme.titleMedium!.copyWith(color: Colors.grey),
                 ),
                 Padding(
@@ -160,7 +164,7 @@ class _SettingScreenState extends State<SettingScreen> {
                   ),
                 ),
                 Text(
-                  "SUPPORT & ACCOUNT",
+                  l10n.supportAndAccount,
                   style: theme.titleMedium!.copyWith(color: Colors.grey),
                 ),
                 Padding(
@@ -168,12 +172,20 @@ class _SettingScreenState extends State<SettingScreen> {
                   child: Column(
                     children: [
                       SettingsButton(
-                        title: "Help & Support",
+                        // title: l10n.helpAndSupport,
+                        title:"Recommend feature",
                         function: () {},
-                        iconData: Icons.question_mark_rounded,
+                        iconData: Icons.lightbulb_outlined,
+                        iconColor: Colors.yellow,
                       ),
                       SettingsButton(
-                        title: "l10n.changePassword",
+                        title: l10n.helpAndSupport,
+                        function: () {},
+                        iconData: Icons.question_mark_rounded,
+                        iconColor: Colors.green,
+                      ),
+                      SettingsButton(
+                        title: l10n.changePassword,
                         function: () {
                           Navigator.push(
                             context,
@@ -183,17 +195,17 @@ class _SettingScreenState extends State<SettingScreen> {
                             ),
                           );
                         },
+                        iconColor: CupertinoColors.black,
                         iconData: Icons.lock_open_outlined,
                       ),
                       SettingsButton(
-                        title: "l10n.logout",
+                        title: l10n.logout,
                         function: () async {
                           try {
                             context.read<AuthCubit>().signOut();
                             if (context.mounted) {
-                              Navigator.pushNamedAndRemoveUntil(
-                                context,
-                                "/signIn",
+                              Navigator.of(context, rootNavigator: true).pushAndRemoveUntil(
+                                MaterialPageRoute(builder: (context) => const SignIn()),
                                     (route) => false,
                               );
                             }

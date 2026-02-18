@@ -4,10 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:study_path/core/utils/screen_util.dart';
 import 'package:study_path/features/authenticate/presentation/pages/sign_up.dart';
+import 'package:study_path/features/settings/presentation/screens/change_password_screen.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/widgets/custom_button.dart';
 import '../../../../core/widgets/custom_text_field.dart';
+import '../../../../l10n/app_localizations.dart';
+import '../../../favorite/cubit/favourite_cubit.dart';
 import '../../../home/presentation/screens/home_screen.dart';
+import '../../../settings/presentation/Cubit/user_cubit.dart';
 import '../manager/auth_cubit.dart';
 
 class SignIn extends StatefulWidget {
@@ -27,24 +31,30 @@ class _SignInState extends State<SignIn> {
     passwordController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
-    // final l10n = AppLocalizations.of(context);
+    final l10n = AppLocalizations.of(context)!;
+    var theme = Theme.of(context).textTheme;
     return Scaffold(
       body: BlocConsumer<AuthCubit, AuthState>(
-        listener: (context, state) {
+        listener: (context, state)async {
           if (state is AuthSuccess) {
+            final userId = state.user.id;
+            context.read<UserCubit>().listenToFirebaseStream(userId);
+            // Start listening to favourites for the newly signed‑in user
+            context.read<FavouriteCubit>().listenToFavorites();
             Navigator.pushNamedAndRemoveUntil(
               context,
               "/main_screen",
-                  (route) => false,
+              (route) => false,
             );
           } else if (state is AuthFailure) {
             ScaffoldMessenger.of(context).hideCurrentSnackBar();
 
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                content: Text("Login Failed"),
+                content: Text(l10n!.loginFailed),
                 backgroundColor: Colors.red,
               ),
             );
@@ -78,26 +88,24 @@ class _SignInState extends State<SignIn> {
                       //     height: 134,
                       //   ),
                       // ),
-                      SizedBox(
-                        height: 130,
-                        width: 138,
-                        child: Icon(Icons.school,size: 60,),
+                      Image.asset(
+                        "assets/icons/icon.png",
+                        height: 200.h(context),
+                        width: 150.w(context),
                       ),
                       Text(
-                        "Welcome Back!",
+                        l10n.welcomeBack,
                         textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.black,
+                        style: theme.titleLarge!.copyWith(
                           fontSize: 30.0.sp(context),
                           fontWeight: FontWeight.w600,
                         ),
                       ),
                       SizedBox(height: 10.h(context)),
                       Text(
-                        '''Find your future in Europe. Continue your journey to a Master's degree''',
+                        l10n.signInDescription,
                         textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.black26,
+                        style: theme.bodySmall!.copyWith(
                           fontSize: 18.0.sp(context),
                           fontWeight: FontWeight.w600,
                         ),
@@ -105,20 +113,21 @@ class _SignInState extends State<SignIn> {
                       const SizedBox(height: 30),
                       CustomTextField(
                         controller: emailController,
-                        hintText: "l10n!.email",
+                        hintText: l10n.email,
                       ),
                       const SizedBox(height: 30),
                       CustomTextField(
                         isPassword: true,
                         controller: passwordController,
-                        hintText: "l10n.password",
+                        hintText: l10n.password,
                       ),
                       InkWell(
                         onTap: () async {
                           try {
-                            await FirebaseAuth.instance.sendPasswordResetEmail(
-                              email: emailController.text,
-                            );
+                            // await FirebaseAuth.instance.sendPasswordResetEmail(
+                            //   email: emailController.text,
+                            // );
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => ChangePasswordScreen(),));
                           } catch (e) {
                             if (kDebugMode) {
                               print(e.toString());
@@ -129,8 +138,10 @@ class _SignInState extends State<SignIn> {
                           alignment: Alignment.topRight,
                           margin: const EdgeInsets.all(10),
                           child: Text(
-                            "l10n.forgetPassword",
-                            style: TextStyle(color: AppColors.blackSecondary),
+                            l10n.forgetPassword,
+                            style: theme.bodySmall!.copyWith(
+                              fontSize: 14.sp(context),
+                            ),
                           ),
                         ),
                       ),
@@ -138,7 +149,7 @@ class _SignInState extends State<SignIn> {
                       //sign in button
                       Center(
                         child: CustomButton(
-                          title: "l10n.login",
+                          title: l10n.login,
                           onTap: () {
                             context.read<AuthCubit>().signIn(
                               emailController.text,
@@ -148,21 +159,22 @@ class _SignInState extends State<SignIn> {
                         ),
                       ),
 
-                      const SizedBox(
-                        height: 30,
-                      ),
+                      const SizedBox(height: 50),
                       Center(
                         child: CustomButton(
+                          width: 300.w(context),
                           isInvert: true,
-                          title: "Continue as a Guest",
+                          title: l10n.continueAsGuest,
                           onTap: () {},
                         ),
                       ),
+                      const SizedBox(height: 15),
+
                       Divider(),
                       Row(
                         children: [
                           Text(
-                            "l10n.dontHaveAccount",
+                            l10n.dontHaveAccount,
                             style: TextStyle(color: Colors.grey),
                           ),
                           TextButton(
@@ -176,7 +188,7 @@ class _SignInState extends State<SignIn> {
                               );
                             },
                             child: Text(
-                              "l10n.create",
+                              l10n.create,
                               style: TextStyle(color: Color(0xff1F4C6B)),
                             ),
                           ),

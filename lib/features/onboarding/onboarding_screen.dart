@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_onboarding_slider/flutter_onboarding_slider.dart';
 import 'package:study_path/core/utils/screen_util.dart';
 import 'package:study_path/features/home/presentation/screens/home_screen.dart';
-
+import '../../l10n/app_localizations.dart';
 import '../../core/cache/cache_helper.dart';
 
 class OnboardingScreen extends StatelessWidget {
@@ -10,16 +10,16 @@ class OnboardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    var theme =Theme.of(context).textTheme;
     return Scaffold(
       body: OnBoardingSlider(
-        skipTextButton: Text("Skip",style: TextStyle(
-          color: Colors.grey,
+        skipTextButton: Text(l10n!.skip,style: theme.bodySmall!.copyWith(
           fontSize: 18.0.sp(context),
           fontWeight: FontWeight.w600,
         ),),
         centerBackground: true,
-        controllerColor: Colors.black,
-        finishButtonText: "Let's Start ->",
+        finishButtonText: l10n.letsStart,
         onFinish: () {
           CacheHelper.set(key: CacheKeys.isOnBoardingSeen, value: true).then((value) {
             Navigator.pushReplacementNamed(context, '/signIn');
@@ -31,6 +31,7 @@ class OnboardingScreen extends StatelessWidget {
         ),
         totalPage: 3,
         headerBackgroundColor: Colors.white,
+        controllerColor: Colors.grey,
         background: [
           Image.asset(
             "assets/images/onboarding_1.png",
@@ -60,20 +61,19 @@ class OnboardingScreen extends StatelessWidget {
               children: <Widget>[
                  SizedBox(height: 450.h(context)),
                 Text(
-                  "Unlock Europe",
+                  l10n.unlockEurope,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.black,
+                  style: theme.titleLarge!.copyWith(
+                    // color: Colors.black,
                     fontSize: 24.0.sp(context),
                     fontWeight: FontWeight.w600,
                   ),
                 ),
                  SizedBox(height: 10.h(context)),
                  Text(
-                  ''' Explore thousands of Master's programs across the continent filtered by your specific needs.''',
+                  l10n.onboardingDescription1,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.black26,
+                  style: theme.bodySmall!.copyWith(
                     fontSize: 18.0.sp(context),
                     fontWeight: FontWeight.w600,
                   ),
@@ -91,20 +91,18 @@ class OnboardingScreen extends StatelessWidget {
               children: <Widget>[
                 SizedBox(height: 450.h(context)),
                 Text(
-                  '''Filter by what matters''',
+                  l10n.filterByWhatMatters,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.black,
+                  style: theme.titleLarge!.copyWith(
                     fontSize: 24.0.sp(context),
                     fontWeight: FontWeight.w600,
                   ),
                 ),
                  SizedBox(height: 10.h(context)),
                  Text(
-                  '''Narrow down thousands of European programs based on your budget, language, and interests.''',
+                  l10n.onboardingDescription2,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.black26,
+                  style: theme.bodySmall!.copyWith(
                     fontSize: 18.0.sp(context),
                     fontWeight: FontWeight.w600,
                   ),
@@ -122,20 +120,18 @@ class OnboardingScreen extends StatelessWidget {
               children: <Widget>[
                 SizedBox(height: 450.h(context)),
                 Text(
-                  '''Your Future Awaits''',
+                  l10n.yourFutureAwaits,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.black,
+                  style: theme.titleLarge!.copyWith(
                     fontSize: 24.0.sp(context),
                     fontWeight: FontWeight.w600,
                   ),
                 ),
                  SizedBox(height: 10.h(context)),
                  Text(
-                  '''Your Future AwaitsAccess thousands of European master's programs tailored to your goals. Let's find your perfect match today.ss''',
+                  l10n.onboardingDescription3,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.black26,
+                  style: theme.bodySmall!.copyWith(
                     fontSize: 18.0.sp(context),
                     fontWeight: FontWeight.w600,
                   ),

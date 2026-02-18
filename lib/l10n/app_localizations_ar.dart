@@ -24,110 +24,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get language => 'اللغه';
 
   @override
-  String price(Object price) {
-    return '$price EGP';
-  }
-
-  @override
-  String get topUp => 'Top Up';
-
-  @override
-  String get payBills => 'Pay Bills';
-
-  @override
-  String get transactions => 'Transactions';
-
-  @override
-  String get mobileNumber => 'رقم الهاتف المحمول';
-
-  @override
-  String get billAccountNumber => 'Bill / Account Number';
-
-  @override
-  String get amount => 'Amount';
-
-  @override
-  String get confirmPay => 'CONFIRM & PAY';
-
-  @override
-  String get processing => 'Processing..';
-
-  @override
-  String get paymentSuccess => 'Payment success';
-
-  @override
-  String get insufficientFunds => 'Insufficient funds';
-
-  @override
-  String get pleaseFillThis => 'يرجى ملء هذا الحقل';
-
-  @override
-  String get electricity => 'الكهرباء';
-
-  @override
-  String get water => 'المياه';
-
-  @override
-  String get internet => 'الانترنت';
-
-  @override
-  String get gas => 'الغاز';
-
-  @override
-  String get vodafone => 'فودافون';
-
-  @override
-  String get orange => 'اورنج';
-
-  @override
-  String get we => 'وي';
-
-  @override
-  String get etisalat => 'اتصالات';
-
-  @override
-  String get topUpBalance => 'Top Up Balance';
-
-  @override
-  String get addMoney => 'Add Money';
-
-  @override
-  String get addMoneyConfirmation => 'Add Money Confirmation';
-
-  @override
-  String get topUpId => 'Top up ID';
-
-  @override
-  String get topUpFee => 'Top up fee';
-
-  @override
-  String get continuee => 'متابعة';
-
-  @override
-  String get free => 'مجاني';
-
-  @override
-  String get time => 'الوقت';
-
-  @override
-  String get confirmTopUp => 'تأكيد الشحن';
-
-  @override
-  String get updateSuccess => 'تم التحديث بنجاح';
-
-  @override
-  String get updateFailed => 'فشل التحديث';
-
-  @override
-  String get bills => 'الفواتير';
-
-  @override
-  String get mobileBills => 'فواتير المحمول';
-
-  @override
-  String get mobileRecharge => 'شحن المحمول';
-
-  @override
   String get changePassword => 'تغيير كلمة المرور';
 
   @override
@@ -155,40 +51,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get profileUpdatedSuccessfully => 'تم تحديث الملف الشخصي بنجاح!';
 
   @override
-  String get egp => 'جنيه';
-
-  @override
-  String get goodMorning => 'صباح الخير!';
-
-  @override
-  String hi(Object name) {
-    return 'مرحباً، $name';
-  }
-
-  @override
-  String get totalBalance => 'الرصيد الإجمالي';
-
-  @override
-  String get inviteFriendEarnCashback => 'ادع صديقاً وستحصلان على استرداد نقدي';
-
-  @override
-  String get inviteFriend => 'ادع صديقاً -->';
-
-  @override
-  String get recentTransactions => 'المعاملات الأخيرة';
-
-  @override
-  String get seeAll => 'عرض الكل';
-
-  @override
-  String get noTransactions => 'لا توجد معاملات';
-
-  @override
-  String error(Object error) {
-    return 'خطأ: $error';
-  }
-
-  @override
   String get password => 'كلمة المرور';
 
   @override
@@ -214,4 +76,234 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get registerFailed => 'فشل التسجيل يرجى التحقق من جميع الحقول';
+
+  @override
+  String get continuee => 'متابعة';
+
+  @override
+  String get seeAll => 'عرض الكل';
+
+  @override
+  String error(Object error) {
+    return 'خطأ: $error';
+  }
+
+  @override
+  String get skip => 'تخطي';
+
+  @override
+  String get letsStart => 'لنبدأ ->';
+
+  @override
+  String get unlockEurope => 'افتح أوروبا';
+
+  @override
+  String get onboardingDescription1 => 'استكشف آلاف برامج الماجستير في جميع أنحاء القارة المفلترة حسب احتياجاتك المحددة.';
+
+  @override
+  String get filterByWhatMatters => 'فلتر حسب ما يهم';
+
+  @override
+  String get onboardingDescription2 => 'قلص آلاف البرامج الأوروبية بناءً على ميزانيتك ولغتك واهتماماتك.';
+
+  @override
+  String get yourFutureAwaits => 'مستقبلك ينتظر';
+
+  @override
+  String get onboardingDescription3 => 'الوصول إلى آلاف برامج الماجستير الأوروبية المصممة خصيصاً لأهدافك. دعنا نجد لك المطابقة المثالية اليوم.';
+
+  @override
+  String get welcomeBack => 'مرحباً بعودتك،';
+
+  @override
+  String get signInDescription => 'ابحث عن مستقبلك في أوروبا. استمر في رحلتك للحصول على درجة الماجستير';
+
+  @override
+  String get continueAsGuest => 'المتابعة كضيف';
+
+  @override
+  String get joinApplication => 'انضم إلى التطبيق';
+
+  @override
+  String get signUpDescription => 'ابحث عن برنامج الماجستير الذي تحلم به في أوروبا';
+
+  @override
+  String get pleaseFillAllFields => 'يرجى ملء جميع الحقول';
+
+  @override
+  String get orContinueWith => 'أو المتابعة مع';
+
+  @override
+  String get chooseYourCharacter => 'اختر شخصيتك';
+
+  @override
+  String get chooseCharacterDescription => 'اختر الملف الشخصي الذي يصفك بشكل أفضل لتخصيص رحلتك إلى أوروبا.';
+
+  @override
+  String get pleaseSelectCharacter => 'يرجى اختيار شخصية أولاً';
+
+  @override
+  String get directScholarshipApplications => 'طلبات المنح الدراسية المباشرة! ترقبوا';
+
+  @override
+  String get comingSoon => 'قريباً';
+
+  @override
+  String get willBeAvailableSoon => 'سيكون متاحاً قريباً';
+
+  @override
+  String get savedPrograms => 'البرامج المحفوظة';
+
+  @override
+  String get noSavedPrograms => 'لم تحفظ أي برامج';
+
+  @override
+  String get favorite => 'مفضل';
+
+  @override
+  String get reloadPage => 'إعادة تحميل الصفحة';
+
+  @override
+  String get findYourDreamMasters => 'ابحث عن حلمك\nماجستير في أوروبا';
+
+  @override
+  String get searchOverDegrees => 'ابحث عن أكثر من 5000 درجة';
+
+  @override
+  String get startNewSearch => 'بدء بحث جديد';
+
+  @override
+  String get errorFetchingProperties => 'خطأ في جلب الخصائص';
+
+  @override
+  String get noPropertiesFound => 'لم يتم العثور على خصائص';
+
+  @override
+  String get noResults => 'لا توجد نتائج';
+
+  @override
+  String get programFilter => 'فلتر البرنامج';
+
+  @override
+  String get reset => 'إعادة تعيين';
+
+  @override
+  String get filters => 'المرشحات';
+
+  @override
+  String get whereDoYouWantToStudy => 'أين تريد الدراسة؟';
+
+  @override
+  String get selectDestination => 'اختر الوجهة';
+
+  @override
+  String get academics => 'الأكاديمية';
+
+  @override
+  String get fieldOfStudy => 'مجال الدراسة';
+
+  @override
+  String get degreeType => 'نوع الدرجة';
+
+  @override
+  String get requirements => 'المتطلبات';
+
+  @override
+  String get languageOfInstructions => 'لغة التعليمات';
+
+  @override
+  String get languageDetails => 'تفاصيل اللغة';
+
+  @override
+  String get moi => 'MOI';
+
+  @override
+  String get previousStudyCertificate => 'شهادة الدراسة السابقة';
+
+  @override
+  String get englishCertificate => 'شهادة اللغة الإنجليزية';
+
+  @override
+  String get certificatesLikeIelts => 'شهادات مثل IELTS..إلخ';
+
+  @override
+  String get showPrograms => 'عرض البرامج';
+
+  @override
+  String get pleaseFillMissingFields => 'يرجى ملء الحقول المفقودة';
+
+  @override
+  String get universityDetails => 'تفاصيل الجامعة';
+
+  @override
+  String get removedFromBookmarks => 'تمت إزالته من الإشارات المرجعية';
+
+  @override
+  String get addedToSavedPrograms => 'تمت إضافته إلى البرامج المحفوظة';
+
+  @override
+  String get tuition => 'الرسوم الدراسية';
+
+  @override
+  String get notAvailable => 'غير متاح';
+
+  @override
+  String get countryLanguage => 'لغة البلد';
+
+  @override
+  String get english => 'الإنجليزية';
+
+  @override
+  String get duration => 'المدة';
+
+  @override
+  String get admissionRequirements => 'متطلبات القبول';
+
+  @override
+  String get officialWebsite => 'الموقع الرسمي';
+
+  @override
+  String get viewPortal => 'عرض البوابة';
+
+  @override
+  String get bookmarks => 'الإشارات المرجعية';
+
+  @override
+  String get noFavorites => 'لم تعجبك أي شيء ';
+
+  @override
+  String get notifications => 'الإشعارات';
+
+  @override
+  String get selectAvatar => 'اختر الصورة الرمزية';
+
+  @override
+  String get tryAgain => 'حاول مرة أخرى';
+
+  @override
+  String get preferences => 'التفضيلات';
+
+  @override
+  String get supportAndAccount => 'الدعم والحساب';
+
+  @override
+  String get helpAndSupport => 'المساعدة والدعم';
+
+  @override
+  String get cairoEgypt => 'القاهرة، مصر';
+
+  @override
+  String get searchResults => 'نتائج البحث';
+
+  @override
+  String get listIsEmpty => 'قائمتك فارغة';
+
+  @override
+  String get home => 'الرئيسية';
+
+  @override
+  String get favourite => 'المفضلة';
+
+  @override
+  String get profile => 'الملف الشخصي';
 }

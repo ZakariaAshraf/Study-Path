@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import '../../../../l10n/app_localizations.dart';
 
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/widgets/custom_button.dart';
@@ -18,7 +19,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // final l10n = AppLocalizations.of(context);
+    final l10n = AppLocalizations.of(context);
     return Scaffold(
       appBar: AppBar(),
       body: Center(
@@ -26,24 +27,25 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text("l10n!.pleaseWriteEmail"),
+              child: Text(l10n!.pleaseWriteEmail),
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: TextFormField(
                 controller: emailController,
                 decoration: InputDecoration(
+
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),
-                  labelText:" l10n.email",
+                  labelText: l10n.email,
                   prefixIcon: const Icon(Icons.email_outlined),
                 ),
               ),
             ),
             CustomButton(
-              color: AppColors.blackSecondary,
-              title: "l10n.changePassword",
+              // color: AppColors.blackSecondary,
+              title: l10n.changePassword,
              onTap: () async {
                try {
                  await FirebaseAuth.instance.sendPasswordResetEmail(email: emailController.text);

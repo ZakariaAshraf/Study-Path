@@ -47,7 +47,7 @@ class OtpAuthentication extends StatelessWidget {
                 CustomToastWidget.show(
                   context: context,
                   title: "Enter number",
-                  iconPath: "assets/icons/logo.png",
+                  iconPath: "assets/icons/icon.png",
                 );
               } else {
                 try {
@@ -59,7 +59,7 @@ class OtpAuthentication extends StatelessWidget {
                   CustomToastWidget.show(
                     context: context,
                     title: "Success",
-                    iconPath: "assets/icons/logo.png",
+                    iconPath: "assets/icons/icon.png",
                   );
                 } on Exception catch (e) {
                   print(e.toString());

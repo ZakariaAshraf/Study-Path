@@ -1,10 +1,14 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:convert';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:study_path/core/cache/cache_helper.dart';
-import 'package:study_path/core/widgets/custom_button.dart';
+import 'package:flutter/services.dart';
 import 'package:study_path/features/home/presentation/widgets/saved_program_section.dart';
 import 'package:study_path/features/home/presentation/widgets/user_info_section.dart';
+import '../../../../core/widgets/custom_button.dart';
+import '../../../../l10n/app_localizations.dart';
 
+import '../../data/model/program_model.dart';
 import '../widgets/search_section.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -12,6 +16,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     var theme = Theme.of(context).textTheme;
     return Scaffold(
       body: ListView(
@@ -20,8 +25,8 @@ class HomeScreen extends StatelessWidget {
           SizedBox(height: 10),
           SearchSection(),
           SizedBox(height: 10),
-          // CustomButton(title: "title", onTap: () async{
-          //   await CacheHelper.clearAllData();
+          // CustomButton(title: "title", onTap: () {
+          //   uploadDataToFirebase();
           // },),
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -37,13 +42,13 @@ class HomeScreen extends StatelessWidget {
                   color: Colors.purple,
                 ),
                 subtitle: Text(
-                  "Direct Scholarship Applications! Stay tuned",
+                  l10n.directScholarshipApplications,
                   style: theme.bodySmall!.copyWith(
                     fontSize: 15,
                   ),
                 ),
                 title: Text(
-                  "COMING SOON",
+                  l10n.comingSoon,
                   style: theme.titleMedium!.copyWith(
                     color: Colors.purple,
                     fontSize: 15,
@@ -57,5 +62,48 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
     );
+  }
+  Future<void> uploadDataToFirebase() async {
+    try {
+      print("🚀 Starting Upload...");
+
+      // 1. قراءة الملف من الـ Assets
+      final String response = await rootBundle.loadString('assets/data.json');
+      final List<dynamic> data = json.decode(response);
+
+      // 2. الرفع لـ Firestore
+      final CollectionReference programsCollection =
+      FirebaseFirestore.instance.collection('programs');
+
+      int count = 0;
+      WriteBatch batch = FirebaseFirestore.instance.batch();
+
+      for (var item in data) {
+        // تحويل الـ JSON لـ Model
+        ProgramModel program = ProgramModel.fromJson(item);
+
+        // تجهيز الداتا للرفع
+        DocumentReference docRef = programsCollection.doc(); // Auto-ID
+        batch.set(docRef, program.toJson());
+
+        count++;
+
+        // Firebase Batch limit is 500 operations
+        // لو الداتا كبيرة بنقسمها
+        if (count % 400 == 0) {
+          await batch.commit();
+          batch = FirebaseFirestore.instance.batch();
+          print("💾 Committed batch of 400...");
+        }
+      }
+
+      // رفع الباقي
+      await batch.commit();
+
+      print("✅ Success! Uploaded $count programs.");
+
+    } catch (e) {
+      print("❌ Error uploading data: $e");
+    }
   }
 }

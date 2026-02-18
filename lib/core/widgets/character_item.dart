@@ -3,13 +3,16 @@ import 'package:study_path/core/utils/screen_util.dart';
 
 class CharacterItem extends StatelessWidget {
 final CharacterModel character;
+final double? width;
+final double? height;
 final bool isSelected;
+final bool showCharName;
 
   final void Function()? onTap;
 
   const CharacterItem({
     super.key,
-    this.onTap, required this.character, required this.isSelected,
+    this.onTap, required this.character, required this.isSelected, this.width, this.height, this.showCharName=true,
   });
 
   @override
@@ -21,27 +24,32 @@ final bool isSelected;
         onTap: onTap,
         child: Container(
           padding: EdgeInsets.all(10),
-          width: 400,
-          height: 400,
+          width:width ?? 400,
+          height: height ??400,
           decoration: BoxDecoration(
             border:isSelected==true ? BoxBorder.all(color: Colors.red) : null,
             borderRadius: BorderRadius.circular(15),
           ),
           child: Column(
             children: [
-              Image.asset(
-                character.imagePath,
-                width: 150.w(context),
-                height: 150.h(context),
-              ),
-              SizedBox(height: 10.h(context)),
-              Text(
-                character.imageName,
-                style: theme.titleMedium!.copyWith(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20.sp(context),
+              Expanded(
+                child: Image.asset(
+                  fit: BoxFit.contain,
+                  character.imagePath,
                 ),
               ),
+              SizedBox(height: 10.h(context)),
+              if (showCharName) ...[
+                SizedBox(height: 5.h(context)),
+                Text(
+                  character.imageName,
+                  textAlign: TextAlign.center,
+                  style: theme.titleMedium!.copyWith(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20.sp(context),
+                  ),
+                ),
+              ]
             ],
           ),
         ),

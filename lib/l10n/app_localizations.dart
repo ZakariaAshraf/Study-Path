@@ -125,210 +125,6 @@ abstract class AppLocalizations {
   /// **'Language'**
   String get language;
 
-  /// Price display with currency
-  ///
-  /// In en, this message translates to:
-  /// **'{price} EGP'**
-  String price(Object price);
-
-  /// No description provided for @topUp.
-  ///
-  /// In en, this message translates to:
-  /// **'Top Up'**
-  String get topUp;
-
-  /// No description provided for @payBills.
-  ///
-  /// In en, this message translates to:
-  /// **'Pay Bills'**
-  String get payBills;
-
-  /// No description provided for @transactions.
-  ///
-  /// In en, this message translates to:
-  /// **'Transactions'**
-  String get transactions;
-
-  /// No description provided for @mobileNumber.
-  ///
-  /// In en, this message translates to:
-  /// **'Mobile Number'**
-  String get mobileNumber;
-
-  /// No description provided for @billAccountNumber.
-  ///
-  /// In en, this message translates to:
-  /// **'Bill / Account Number'**
-  String get billAccountNumber;
-
-  /// No description provided for @amount.
-  ///
-  /// In en, this message translates to:
-  /// **'Amount'**
-  String get amount;
-
-  /// No description provided for @confirmPay.
-  ///
-  /// In en, this message translates to:
-  /// **'CONFIRM & PAY'**
-  String get confirmPay;
-
-  /// No description provided for @processing.
-  ///
-  /// In en, this message translates to:
-  /// **'Processing..'**
-  String get processing;
-
-  /// No description provided for @paymentSuccess.
-  ///
-  /// In en, this message translates to:
-  /// **'Payment success'**
-  String get paymentSuccess;
-
-  /// No description provided for @insufficientFunds.
-  ///
-  /// In en, this message translates to:
-  /// **'Insufficient funds'**
-  String get insufficientFunds;
-
-  /// No description provided for @pleaseFillThis.
-  ///
-  /// In en, this message translates to:
-  /// **'Please fill this'**
-  String get pleaseFillThis;
-
-  /// No description provided for @electricity.
-  ///
-  /// In en, this message translates to:
-  /// **'Electricity'**
-  String get electricity;
-
-  /// No description provided for @water.
-  ///
-  /// In en, this message translates to:
-  /// **'Water'**
-  String get water;
-
-  /// No description provided for @internet.
-  ///
-  /// In en, this message translates to:
-  /// **'Internet'**
-  String get internet;
-
-  /// No description provided for @gas.
-  ///
-  /// In en, this message translates to:
-  /// **'Gas'**
-  String get gas;
-
-  /// No description provided for @vodafone.
-  ///
-  /// In en, this message translates to:
-  /// **'Vodafone'**
-  String get vodafone;
-
-  /// No description provided for @orange.
-  ///
-  /// In en, this message translates to:
-  /// **'Orange'**
-  String get orange;
-
-  /// No description provided for @we.
-  ///
-  /// In en, this message translates to:
-  /// **'We'**
-  String get we;
-
-  /// No description provided for @etisalat.
-  ///
-  /// In en, this message translates to:
-  /// **'Etisalat'**
-  String get etisalat;
-
-  /// No description provided for @topUpBalance.
-  ///
-  /// In en, this message translates to:
-  /// **'Top Up Balance'**
-  String get topUpBalance;
-
-  /// No description provided for @addMoney.
-  ///
-  /// In en, this message translates to:
-  /// **'Add Money'**
-  String get addMoney;
-
-  /// No description provided for @addMoneyConfirmation.
-  ///
-  /// In en, this message translates to:
-  /// **'Add Money Confirmation'**
-  String get addMoneyConfirmation;
-
-  /// No description provided for @topUpId.
-  ///
-  /// In en, this message translates to:
-  /// **'Top up ID'**
-  String get topUpId;
-
-  /// No description provided for @topUpFee.
-  ///
-  /// In en, this message translates to:
-  /// **'Top up fee'**
-  String get topUpFee;
-
-  /// No description provided for @continuee.
-  ///
-  /// In en, this message translates to:
-  /// **'Continue'**
-  String get continuee;
-
-  /// No description provided for @free.
-  ///
-  /// In en, this message translates to:
-  /// **'Free'**
-  String get free;
-
-  /// No description provided for @time.
-  ///
-  /// In en, this message translates to:
-  /// **'Time'**
-  String get time;
-
-  /// No description provided for @confirmTopUp.
-  ///
-  /// In en, this message translates to:
-  /// **'Confirm Top Up'**
-  String get confirmTopUp;
-
-  /// No description provided for @updateSuccess.
-  ///
-  /// In en, this message translates to:
-  /// **'Update success'**
-  String get updateSuccess;
-
-  /// No description provided for @updateFailed.
-  ///
-  /// In en, this message translates to:
-  /// **'Update Failed'**
-  String get updateFailed;
-
-  /// No description provided for @bills.
-  ///
-  /// In en, this message translates to:
-  /// **'Bills'**
-  String get bills;
-
-  /// No description provided for @mobileBills.
-  ///
-  /// In en, this message translates to:
-  /// **'Mobile Bills'**
-  String get mobileBills;
-
-  /// No description provided for @mobileRecharge.
-  ///
-  /// In en, this message translates to:
-  /// **'Mobile Recharge'**
-  String get mobileRecharge;
-
   /// No description provided for @changePassword.
   ///
   /// In en, this message translates to:
@@ -383,66 +179,6 @@ abstract class AppLocalizations {
   /// **'Profile updated successfully!'**
   String get profileUpdatedSuccessfully;
 
-  /// No description provided for @egp.
-  ///
-  /// In en, this message translates to:
-  /// **'EGP'**
-  String get egp;
-
-  /// No description provided for @goodMorning.
-  ///
-  /// In en, this message translates to:
-  /// **'Good Morning!'**
-  String get goodMorning;
-
-  /// Greeting with user name
-  ///
-  /// In en, this message translates to:
-  /// **'Hi, {name}'**
-  String hi(Object name);
-
-  /// No description provided for @totalBalance.
-  ///
-  /// In en, this message translates to:
-  /// **'Total balance'**
-  String get totalBalance;
-
-  /// No description provided for @inviteFriendEarnCashback.
-  ///
-  /// In en, this message translates to:
-  /// **'Invite a friend and both earn cashback'**
-  String get inviteFriendEarnCashback;
-
-  /// No description provided for @inviteFriend.
-  ///
-  /// In en, this message translates to:
-  /// **'Invite friend -->'**
-  String get inviteFriend;
-
-  /// No description provided for @recentTransactions.
-  ///
-  /// In en, this message translates to:
-  /// **'Recent Transactions'**
-  String get recentTransactions;
-
-  /// No description provided for @seeAll.
-  ///
-  /// In en, this message translates to:
-  /// **'See All'**
-  String get seeAll;
-
-  /// No description provided for @noTransactions.
-  ///
-  /// In en, this message translates to:
-  /// **'No Transactions'**
-  String get noTransactions;
-
-  /// Error message with error details
-  ///
-  /// In en, this message translates to:
-  /// **'Error: {error}'**
-  String error(Object error);
-
   /// No description provided for @password.
   ///
   /// In en, this message translates to:
@@ -496,6 +232,462 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Register failed please check all fields'**
   String get registerFailed;
+
+  /// No description provided for @continuee.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get continuee;
+
+  /// No description provided for @seeAll.
+  ///
+  /// In en, this message translates to:
+  /// **'See All'**
+  String get seeAll;
+
+  /// Error message with error details
+  ///
+  /// In en, this message translates to:
+  /// **'Error: {error}'**
+  String error(Object error);
+
+  /// No description provided for @skip.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip'**
+  String get skip;
+
+  /// No description provided for @letsStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Let\'s Start ->'**
+  String get letsStart;
+
+  /// No description provided for @unlockEurope.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock Europe'**
+  String get unlockEurope;
+
+  /// No description provided for @onboardingDescription1.
+  ///
+  /// In en, this message translates to:
+  /// **'Explore thousands of Master\'s programs across the continent filtered by your specific needs.'**
+  String get onboardingDescription1;
+
+  /// No description provided for @filterByWhatMatters.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter by what matters'**
+  String get filterByWhatMatters;
+
+  /// No description provided for @onboardingDescription2.
+  ///
+  /// In en, this message translates to:
+  /// **'Narrow down thousands of European programs based on your budget, language, and interests.'**
+  String get onboardingDescription2;
+
+  /// No description provided for @yourFutureAwaits.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Future Awaits'**
+  String get yourFutureAwaits;
+
+  /// No description provided for @onboardingDescription3.
+  ///
+  /// In en, this message translates to:
+  /// **'Access thousands of European master\'s programs tailored to your goals. Let\'s find your perfect match today.'**
+  String get onboardingDescription3;
+
+  /// No description provided for @welcomeBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome Back,'**
+  String get welcomeBack;
+
+  /// No description provided for @signInDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Find your future in Europe. Continue your journey to a Master\'s degree'**
+  String get signInDescription;
+
+  /// No description provided for @continueAsGuest.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue as a Guest'**
+  String get continueAsGuest;
+
+  /// No description provided for @joinApplication.
+  ///
+  /// In en, this message translates to:
+  /// **'Join Application'**
+  String get joinApplication;
+
+  /// No description provided for @signUpDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Find your dream Master\'s program in Europe'**
+  String get signUpDescription;
+
+  /// No description provided for @pleaseFillAllFields.
+  ///
+  /// In en, this message translates to:
+  /// **'Please fill all fields'**
+  String get pleaseFillAllFields;
+
+  /// No description provided for @orContinueWith.
+  ///
+  /// In en, this message translates to:
+  /// **'or continue with'**
+  String get orContinueWith;
+
+  /// No description provided for @chooseYourCharacter.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose Your Character'**
+  String get chooseYourCharacter;
+
+  /// No description provided for @chooseCharacterDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Select the profile that best describes you to personalize your journey to Europe.'**
+  String get chooseCharacterDescription;
+
+  /// No description provided for @pleaseSelectCharacter.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select a character first'**
+  String get pleaseSelectCharacter;
+
+  /// No description provided for @directScholarshipApplications.
+  ///
+  /// In en, this message translates to:
+  /// **'Direct Scholarship Applications! Stay tuned'**
+  String get directScholarshipApplications;
+
+  /// No description provided for @comingSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'COMING SOON'**
+  String get comingSoon;
+
+  /// No description provided for @willBeAvailableSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Will be available soon'**
+  String get willBeAvailableSoon;
+
+  /// No description provided for @savedPrograms.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved Programs'**
+  String get savedPrograms;
+
+  /// No description provided for @noSavedPrograms.
+  ///
+  /// In en, this message translates to:
+  /// **'You don\'t save any programmes'**
+  String get noSavedPrograms;
+
+  /// No description provided for @favorite.
+  ///
+  /// In en, this message translates to:
+  /// **'favorite'**
+  String get favorite;
+
+  /// No description provided for @reloadPage.
+  ///
+  /// In en, this message translates to:
+  /// **'Reload page'**
+  String get reloadPage;
+
+  /// No description provided for @findYourDreamMasters.
+  ///
+  /// In en, this message translates to:
+  /// **'Find your dream\nMaster\'s in Europe'**
+  String get findYourDreamMasters;
+
+  /// No description provided for @searchOverDegrees.
+  ///
+  /// In en, this message translates to:
+  /// **'Search over 5,000 degrees'**
+  String get searchOverDegrees;
+
+  /// No description provided for @startNewSearch.
+  ///
+  /// In en, this message translates to:
+  /// **'Start New Search'**
+  String get startNewSearch;
+
+  /// No description provided for @errorFetchingProperties.
+  ///
+  /// In en, this message translates to:
+  /// **'Error fetching properties'**
+  String get errorFetchingProperties;
+
+  /// No description provided for @noPropertiesFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No properties found'**
+  String get noPropertiesFound;
+
+  /// No description provided for @noResults.
+  ///
+  /// In en, this message translates to:
+  /// **'No Results'**
+  String get noResults;
+
+  /// No description provided for @programFilter.
+  ///
+  /// In en, this message translates to:
+  /// **'Program Filter'**
+  String get programFilter;
+
+  /// No description provided for @reset.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset'**
+  String get reset;
+
+  /// No description provided for @filters.
+  ///
+  /// In en, this message translates to:
+  /// **'Filters'**
+  String get filters;
+
+  /// No description provided for @whereDoYouWantToStudy.
+  ///
+  /// In en, this message translates to:
+  /// **'Where do you want to study ?'**
+  String get whereDoYouWantToStudy;
+
+  /// No description provided for @selectDestination.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Destination'**
+  String get selectDestination;
+
+  /// No description provided for @academics.
+  ///
+  /// In en, this message translates to:
+  /// **'Academics'**
+  String get academics;
+
+  /// No description provided for @fieldOfStudy.
+  ///
+  /// In en, this message translates to:
+  /// **'Field of study'**
+  String get fieldOfStudy;
+
+  /// No description provided for @degreeType.
+  ///
+  /// In en, this message translates to:
+  /// **'degree type'**
+  String get degreeType;
+
+  /// No description provided for @requirements.
+  ///
+  /// In en, this message translates to:
+  /// **'Requirements'**
+  String get requirements;
+
+  /// No description provided for @languageOfInstructions.
+  ///
+  /// In en, this message translates to:
+  /// **'LANGUAGE OF INSTRUCTIONS'**
+  String get languageOfInstructions;
+
+  /// No description provided for @languageDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Language details'**
+  String get languageDetails;
+
+  /// No description provided for @moi.
+  ///
+  /// In en, this message translates to:
+  /// **'MOI'**
+  String get moi;
+
+  /// No description provided for @previousStudyCertificate.
+  ///
+  /// In en, this message translates to:
+  /// **'previous study certificate'**
+  String get previousStudyCertificate;
+
+  /// No description provided for @englishCertificate.
+  ///
+  /// In en, this message translates to:
+  /// **'English Certificate'**
+  String get englishCertificate;
+
+  /// No description provided for @certificatesLikeIelts.
+  ///
+  /// In en, this message translates to:
+  /// **'certificates like IELTS..etc'**
+  String get certificatesLikeIelts;
+
+  /// No description provided for @showPrograms.
+  ///
+  /// In en, this message translates to:
+  /// **'Show Programs'**
+  String get showPrograms;
+
+  /// No description provided for @pleaseFillMissingFields.
+  ///
+  /// In en, this message translates to:
+  /// **'Please fill missing fields'**
+  String get pleaseFillMissingFields;
+
+  /// No description provided for @universityDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'University Details'**
+  String get universityDetails;
+
+  /// No description provided for @removedFromBookmarks.
+  ///
+  /// In en, this message translates to:
+  /// **'removed from bookmarks'**
+  String get removedFromBookmarks;
+
+  /// No description provided for @addedToSavedPrograms.
+  ///
+  /// In en, this message translates to:
+  /// **'added to saved programs'**
+  String get addedToSavedPrograms;
+
+  /// No description provided for @tuition.
+  ///
+  /// In en, this message translates to:
+  /// **'TUITION'**
+  String get tuition;
+
+  /// No description provided for @notAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'NOT AVAILABLE'**
+  String get notAvailable;
+
+  /// No description provided for @countryLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Country Language'**
+  String get countryLanguage;
+
+  /// No description provided for @english.
+  ///
+  /// In en, this message translates to:
+  /// **'English'**
+  String get english;
+
+  /// No description provided for @duration.
+  ///
+  /// In en, this message translates to:
+  /// **'DURATION'**
+  String get duration;
+
+  /// No description provided for @admissionRequirements.
+  ///
+  /// In en, this message translates to:
+  /// **'Admission Requirements'**
+  String get admissionRequirements;
+
+  /// No description provided for @officialWebsite.
+  ///
+  /// In en, this message translates to:
+  /// **'Official Website'**
+  String get officialWebsite;
+
+  /// No description provided for @viewPortal.
+  ///
+  /// In en, this message translates to:
+  /// **'View Portal'**
+  String get viewPortal;
+
+  /// No description provided for @bookmarks.
+  ///
+  /// In en, this message translates to:
+  /// **'Bookmarks'**
+  String get bookmarks;
+
+  /// No description provided for @noFavorites.
+  ///
+  /// In en, this message translates to:
+  /// **'You don\'t like anything '**
+  String get noFavorites;
+
+  /// No description provided for @notifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get notifications;
+
+  /// No description provided for @selectAvatar.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Avatar'**
+  String get selectAvatar;
+
+  /// No description provided for @tryAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Try Again'**
+  String get tryAgain;
+
+  /// No description provided for @preferences.
+  ///
+  /// In en, this message translates to:
+  /// **'PREFERENCES'**
+  String get preferences;
+
+  /// No description provided for @supportAndAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'SUPPORT & ACCOUNT'**
+  String get supportAndAccount;
+
+  /// No description provided for @helpAndSupport.
+  ///
+  /// In en, this message translates to:
+  /// **'Help & Support'**
+  String get helpAndSupport;
+
+  /// No description provided for @cairoEgypt.
+  ///
+  /// In en, this message translates to:
+  /// **'Cairo, Egypt'**
+  String get cairoEgypt;
+
+  /// No description provided for @searchResults.
+  ///
+  /// In en, this message translates to:
+  /// **'Search Results'**
+  String get searchResults;
+
+  /// No description provided for @listIsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Your list is empty'**
+  String get listIsEmpty;
+
+  /// No description provided for @home.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get home;
+
+  /// No description provided for @favourite.
+  ///
+  /// In en, this message translates to:
+  /// **'Favourite'**
+  String get favourite;
+
+  /// No description provided for @profile.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get profile;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

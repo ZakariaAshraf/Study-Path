@@ -7,6 +7,7 @@ import 'package:study_path/features/home/presentation/screens/home_screen.dart';
 import 'package:study_path/features/notification/presentation/screens/notification_screen.dart';
 import 'package:study_path/features/search/presentation/search_screen.dart';
 import 'package:study_path/features/settings/presentation/screens/setting_view.dart';
+import 'l10n/app_localizations.dart';
 
 import 'core/utils/app_colors.dart';
 
@@ -19,12 +20,15 @@ class MainScreen extends StatefulWidget {
     {"icon": CupertinoIcons.bookmark},
     {"icon": CupertinoIcons.person},
   ];
-  static final List<Map<String, dynamic>> _titles = [
-    {"name": "Home"},
-    {"name": "Search"},
-    {"name": "Favourite"},
-    {"name": "Profile"},
-  ];
+  static List<Map<String, dynamic>> getTitles(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    return [
+      {"name": l10n!.home},
+      {"name": l10n.search},
+      {"name": l10n.favourite},
+      {"name": l10n.profile},
+    ];
+  }
 
   @override
   State<MainScreen> createState() => _MainScreenState();
