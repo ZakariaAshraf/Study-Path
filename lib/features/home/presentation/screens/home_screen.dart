@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:study_path/features/home/presentation/widgets/saved_program_section.dart';
 import 'package:study_path/features/home/presentation/widgets/user_info_section.dart';
 import '../../../../core/widgets/custom_button.dart';
@@ -40,7 +41,7 @@ class HomeScreen extends StatelessWidget {
                   icon: Icon(Icons.school_outlined),
                   onPressed: () {},
                   color: Colors.purple,
-                ),
+                ).animate().fade().slide(),
                 subtitle: Text(
                   l10n.directScholarshipApplications,
                   style: theme.bodySmall!.copyWith(
@@ -54,13 +55,13 @@ class HomeScreen extends StatelessWidget {
                     fontSize: 15,
                     fontWeight: FontWeight.bold,
                   ),
-                ),
+                ).animate().fade().scale(),
               ),
             ),
           ),
           SizedBox(child: SavedProgramSection()),
           SizedBox(height: 10),
-          SizedBox(child: ExploreDestinationSection()),
+          SizedBox(child: ExploreDestinationSection().animate().fadeIn(duration: 600.ms)),
           SizedBox(height: 20),
 
         ],

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:study_path/core/data/country_model.dart';
 import 'package:study_path/core/utils/screen_util.dart';
 import 'package:study_path/core/widgets/custom_button.dart';
@@ -76,7 +77,9 @@ class CountryDetailsScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                    ),
+                    ).animate()
+                        .fade(duration: 500.ms)
+                        .scale(delay: 500.ms),
                     Align(
                       alignment: AlignmentDirectional.bottomStart,
                       child: Padding(
@@ -181,7 +184,7 @@ class CountryDetailsScreen extends StatelessWidget {
                           Text(l10n.basicRequirements, style: theme.titleLarge),
                           SizedBox(height: 10.h(context)),
                           Container(
-                            height: 400.h(context),
+                            height: 500.h(context),
                             decoration: BoxDecoration(
                               border: BoxBorder.all(color: Colors.grey.shade300),
                               borderRadius: BorderRadius.circular(9),
@@ -386,7 +389,9 @@ class CountryDetailsScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                  ),
+                  ).animate()
+                      .fade(duration: 500.ms)
+                      .slideX(delay: 300.ms),
                 ],
               ),
             ),

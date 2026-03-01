@@ -140,9 +140,9 @@ class _SearchScreenState extends State<SearchScreen> {
                   },
                 ),
                 builder: (context, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const Center(child: CircularProgressIndicator(color: Colors.grey,));
-                  }
+                  // if (snapshot.connectionState == ConnectionState.waiting) {
+                  //   return const Center(child: CircularProgressIndicator(color: Colors.grey,));
+                  // }
                   if (_searchController.text.isEmpty && (_categorySubject.value == 'All')) {
                     return DefaultMessageCard(
                       sign: "🔍",

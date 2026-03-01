@@ -30,6 +30,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get editProfile => 'تعديل الملف الشخصي';
 
   @override
+  String get offline => 'أنت في وضع عدم الاتصال';
+
+  @override
   String get logout => 'تسجيل الخروج';
 
   @override

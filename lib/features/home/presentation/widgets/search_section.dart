@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:study_path/core/cache/cache_helper.dart';
 import 'package:study_path/core/utils/screen_util.dart';
 import 'package:study_path/features/filter/presentation/screens/filter_screen.dart';
@@ -88,7 +89,7 @@ class SearchSection extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                             fontSize: 17.sp(context),
                           ),
-                        ),
+                        ).animate().fade().scale(duration: 640.ms),
                         Container(
                           // height: 40,
                           // width: 64.w(context),
@@ -107,7 +108,7 @@ class SearchSection extends StatelessWidget {
                               ),
                             ],
                           ),
-                        )
+                        ).animate().fade().fadeIn(duration: 640.ms)
                       ],
                     ),
                   ),

@@ -137,6 +137,12 @@ abstract class AppLocalizations {
   /// **'Edit Profile'**
   String get editProfile;
 
+  /// No description provided for @offline.
+  ///
+  /// In en, this message translates to:
+  /// **'You are offline'**
+  String get offline;
+
   /// No description provided for @logout.
   ///
   /// In en, this message translates to:

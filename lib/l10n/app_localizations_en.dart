@@ -30,6 +30,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get editProfile => 'Edit Profile';
 
   @override
+  String get offline => 'You are offline';
+
+  @override
   String get logout => 'logout';
 
   @override

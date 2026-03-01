@@ -1,5 +1,5 @@
 class AdManger {
-  static bool isTest = true;
+  static bool isTest = false;
   static String rewardedSchedule = isTest
       ? "ca-app-pub-3940256099942544/5224354917"
       : "ca-app-pub-5907953906414563/6008274337";

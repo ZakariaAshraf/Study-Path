@@ -23,9 +23,9 @@ import 'features/onboarding/onboarding_screen.dart';
 import 'l10n/app_localizations.dart';
 import 'main_screen.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  MobileAds.instance.initialize();
+  await MobileAds.instance.initialize();
   await Firebase.initializeApp();
  NotificationServices.init();
  await CacheHelper.init();
